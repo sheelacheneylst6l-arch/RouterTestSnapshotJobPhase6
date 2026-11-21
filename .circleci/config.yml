@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  pipe_test:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - run:
+          name: pipe
+          command: echo "apple banana cherry" | wc -w
+workflows:
+  main:
+    jobs:
+      - pipe_test
